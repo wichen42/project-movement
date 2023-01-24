@@ -4,9 +4,9 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/project-movement/',
   plugins: [react()],
   resolve: {
     alias: [{find: "@", replacement: path.resolve(__dirname, "src")}]
   },
-  base: '/project-movement/'
 })
