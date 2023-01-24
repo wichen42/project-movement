@@ -1,12 +1,14 @@
 import HText from "@/shared/HText";
-import { BenefitType, SelectedPage } from "@/shared/types";
+import { ProgramType, SelectedPage } from "@/shared/types";
 import {
     HomeModernIcon,
     UserGroupIcon,
+    UserIcon,
+    UsersIcon,
     AcademicCapIcon
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import Policy from "./Benefit";
+import Program from "./Program";
 import ActionButton from "@/shared/ActionButton";
 import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 
@@ -24,32 +26,32 @@ type Props = {
     setSelectedPage: (value: SelectedPage) => void;
 }
 
-const benefits: Array<BenefitType> = [
+const programs: Array<ProgramType> = [
     {
-        icon: <HomeModernIcon className="h-6 w-6"/>,
-        title: "State of the Art Facilities",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam facilis porro sint. Eligendi similique, nostrum incidunt adipisci, totam assumenda, sunt eaque molestiae omnis deserunt reprehenderit dolore soluta expedita magnam! Blanditiis?"
+        icon: <UserIcon className="h-6 w-6"/>,
+        title: "Personal Training",
+        description: "One on one individualized training focused on helping our clients achieve their fitness goals. With undivided attention to our clients we help program, teach, and coach our clients so they leave with more than just a workout."
+    },
+    {
+        icon: <UsersIcon className="h-6 w-6"/>,
+        title: "Semi-Private Training - Coming Soon",
+        description: "2 is always better than 1. Workout with a partner with the same fitness goals as you so you do not have to feel like you're in this alone, we got you!"
     },
     {
         icon: <UserGroupIcon className="h-6 w-6"/>,
-        title: "Hundreds of Diverse Training Plans",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam facilis porro sint. Eligendi similique, nostrum incidunt adipisci, totam assumenda, sunt eaque molestiae omnis deserunt reprehenderit dolore soluta expedita magnam! Blanditiis?"
-    },
-    {
-        icon: <AcademicCapIcon className="h-6 w-6"/>,
-        title: "Expert and Pro Trainers",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam facilis porro sint. Eligendi similique, nostrum incidunt adipisci, totam assumenda, sunt eaque molestiae omnis deserunt reprehenderit dolore soluta expedita magnam! Blanditiis?"
+        title: "Small Group Training",
+        description: "Our small group classes are focused on delivering heart pumping and fat shedding results. In our Strength & Conditioning based HIIT classes we will generate POWERFUL movements to get you moving."
     }
 ]
 
-const Benefits = ({setSelectedPage}: Props) => {
+const Programs = ({setSelectedPage}: Props) => {
 
   return (
-    <section id="benefits"
+    <section id="programs"
     className="mx-auto min-h:full w-5/6 py-20"
     >
         <motion.div
-        onViewportEnter={() => setSelectedPage(SelectedPage.Benefits)}
+        onViewportEnter={() => setSelectedPage(SelectedPage.Programs)}
         >
             {/* Header */}
             <motion.div 
@@ -64,9 +66,9 @@ const Benefits = ({setSelectedPage}: Props) => {
             }}
             >
                 <HText>MORE THAN JUST A GYM</HText>
-                <p className="my-5 text-sm">
+                {/* <p className="my-5 text-sm">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore facilis aliquid cumque eaque perspiciatis exercitationem repellat ut adipisci sunt saepe, incidunt, mollitia necessitatibus labore aperiam fugit, totam voluptatibus itaque vero.
-                </p>
+                </p> */}
             </motion.div>
 
             {/* Benefits */}
@@ -77,8 +79,8 @@ const Benefits = ({setSelectedPage}: Props) => {
             viewport={{once: true, amount: 0.5}}
             variants={container}
             >
-                {benefits.map((policy: BenefitType) => (
-                    <Policy key={policy.title} icon={policy.icon} title={policy.title} description={policy.description} setSelectedPage={setSelectedPage}/>
+                {programs.map((program: ProgramType) => (
+                    <Program key={program.title} icon={program.icon} title={program.title} description={program.description} setSelectedPage={setSelectedPage}/>
                 ))}
             </motion.div>
 
@@ -90,7 +92,8 @@ const Benefits = ({setSelectedPage}: Props) => {
                 <div>
                     {/* Title */}
                     <div className="relative">
-                        <div>
+                        <div
+                        className="mt-10">
                             <motion.div
                             initial="hidden" 
                             whileInView="visible" 
@@ -119,8 +122,17 @@ const Benefits = ({setSelectedPage}: Props) => {
                             visible: {opacity: 1, x:0}
                         }}
                         >
-                            <p className="my-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga suscipit officiis alias a omnis, doloremque repellat tempora temporibus voluptatum libero sed. Atque debitis exercitationem libero dignissimos tempore vel laborum doloribus.</p>
-                            <p className="mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum eum dolorem autem voluptas, fugit sequi minus temporibus inventore quasi nemo! Nulla repellat exercitationem est dolorem consequuntur provident nesciunt vitae nam!</p>
+                            <p className="mt-10 mb-5 text-2xl font-bold">Credentials: </p>
+                            <p>Owner / Personal Trainer</p>
+                            <p>NASM Certified Personal Trainer</p>
+                            <p>NASM Corrective Exercise Specialist</p>
+                            <p>NASM Performance Enhancing Specialist</p>
+                            <p>ISSA Strength & Conditioning Coach</p>
+                            <p>ISSA Nutrition Coach</p>
+                            <p>ISSA Certified Personal Trainer</p>
+                            <p>NFPT Functional Training Specialist</p>
+                            <p>CPR/AED Certified</p>
+                            <p className="my-5">Kevin loves his job as a personal trainer and coach. He believes that personal trainers and coaches are the frontline of helping individuals take their first steps in changing their lives. Kevin is extremely experienced with transformations, helping individuals stay consistent and accountable for their fitness goals. He is willing to take on any client who loves to be challenged and wants to be the best version of themselves. </p>
                         </motion.div>
                     {/* Button */}
                     <div className="relative mt-16">
@@ -137,4 +149,4 @@ const Benefits = ({setSelectedPage}: Props) => {
   )
 }
 
-export default Benefits
+export default Programs

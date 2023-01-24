@@ -1,8 +1,8 @@
 import { useState } from "react";
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/solid";
 import Logo from "@/assets/Logo.png";
-import LogoWhite from "@/assets/LogoWhite.png";
 import LogoGold from "@/assets/LogoGold.png";
+import LogoBlack from "@/assets/LogoBlack.png";
 import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
@@ -27,15 +27,15 @@ const Nabvar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
             <div className={`${navBarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}>
                 <div className={`${flexBetween} mx-auto w-5/6`}>
                     <div  className={`${flexBetween} w-full gap-16`}>
-                        <img alt="logo" src={isTopOfPage ? LogoGold : Logo}/>
+                        <img alt="logo" src={isTopOfPage ? LogoGold : LogoBlack}/>
                         
                         {isAboveMediumScreens ? (
                             <div className={`${flexBetween} w-full`}>
                                 <div className={`${flexBetween} gap-8 text-sm`}>
                                     <Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
-                                    <Link page="Benefits" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+                                    <Link page="Programs" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
                                     <Link page="Testimonials" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
-                                    <Link page="Location" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+                                    {/* <Link page="Location" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> */}
                                     <Link page="Contact Us" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
                                 </div>
     
@@ -70,9 +70,9 @@ const Nabvar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
                     {/* Menu Items */}
                     <div className="ml-[33%] flex flex-col gap-10 text-2xl">
                         <Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
-                        <Link page="Benefits" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
-                        <Link page="Program" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
-                        <Link page="Location" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+                        <Link page="Programs" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+                        <Link page="Testimonials" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+                        {/* <Link page="Location" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> */}
                         <Link page="Contact Us" selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
                     </div>
                 </div>

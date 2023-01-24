@@ -1,12 +1,12 @@
 import Navbar from "@/scenes/navbar";
 import Home from "@/scenes/Home";
-import Benefits from "@/scenes/Benefits";
 import ContactUs from "@/scenes/ContactUs"
 import Location from "@/scenes/Location";
 import Footer from "@/scenes/Footer";
 import { useEffect, useState } from "react";
 import { SelectedPage } from "@/shared/types";
 import Testimonials from "./scenes/Testimonials";
+import Programs from "./scenes/Programs";
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
     <div className="app bg-gray-20">
       <Navbar selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage}/>
       <Home setSelectedPage={setSelectedPage}/>
-      <Benefits setSelectedPage={setSelectedPage}/>
+      <Programs setSelectedPage={setSelectedPage}/>
       <Testimonials setSelectedPage={setSelectedPage}/>
       {/* <Location setSelectedPage={setSelectedPage}/> */}
       <ContactUs setSelectedPage={setSelectedPage}/>

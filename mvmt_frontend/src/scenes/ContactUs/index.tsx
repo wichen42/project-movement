@@ -47,7 +47,7 @@ function ContactUs({setSelectedPage}: Props) {
                     </p>
                 </motion.div>
 
-                {/* Form and Image */}
+                {/* Form*/}
                 <div className="mt-10 justify-between gap-8 md:flex">
                     <motion.div
                     className="mt-10 basis-3/5 md:mt-0"
@@ -76,7 +76,7 @@ function ContactUs({setSelectedPage}: Props) {
                             })}
                             />
                             {errors.name && (
-                                <p className="mt-1 text-primary-500">
+                                <p className="mb-5 text-secondary-500">
                                     {errors.name.type === "required" && "This field is required."}
                                     {errors.name.type === "maxLength" && "The max length is 30."}
                                 </p>
@@ -91,9 +91,43 @@ function ContactUs({setSelectedPage}: Props) {
                             })}
                             />
                             {errors.email && (
-                                <p className="mt-1 text-primary-500">
+                                <p className="mb-5 text-secondary-500">
                                     {errors.email.type === "required" && "This field is required."}
                                     {errors.email.type === "pattern" && "This field must have a valid email."}
+                                </p>
+                            )}
+                            <input 
+                            className={inputStyles}
+                            type="text"
+                            placeholder="Phone Number"
+                            {...register("phone", {
+                                required: true,
+                            })}
+                            />
+                            {errors.phone && (
+                                <p className="mb-5 text-secondary-500">
+                                    {errors.phone.type === "required" && "This field is required."}
+                                </p>                
+                            )}
+                            <div>
+                                <select 
+                                className={inputStyles}
+                                {...register("select", {
+                                    required: true,
+                                })}
+                                >
+                                    <option
+                                    value=""
+                                    disabled
+                                    selected
+                                    >Which program are you interested in?</option>
+                                    <option>Personal Training</option>
+                                    <option>Small Group Training</option>
+                                </select>
+                            </div>
+                            {errors.select && (
+                                <p className="mb-5 text-secondary-500">
+                                    {errors.select.type === "required" && "Please selecte a program."}
                                 </p>
                             )}
                             <textarea
@@ -107,7 +141,7 @@ function ContactUs({setSelectedPage}: Props) {
                                 })}
                             />
                             {errors.message && (
-                                <p className="mt-1 text-primary-500">
+                                <p className="mb-5 text-secondary-500">
                                 {errors.message.type === "required" &&
                                     "This field is required."}
                                 {errors.message.type === "maxLength" &&
@@ -124,25 +158,7 @@ function ContactUs({setSelectedPage}: Props) {
                         </form>
                     </motion.div>
 
-                    <motion.div
-                    className="relative mt-16 basis-2/5 md:mt-0"
-                    initial="hidden" 
-                    whileInView="visible" 
-                    viewport={{once: true, amount: 0.5}} 
-                    transition={{delay: 0.2, duration: 0.5}} 
-                    variants={{
-                        hidden: {opacity: 0, y:50}, 
-                        visible: {opacity: 1, y:0}
-                    }}
-                    >   
-                        <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1]">
-                            <img 
-                            className="w-full"
-                            alt="contact-us-page-graphic"
-                            src={ContactUsPageGraphic}
-                            />
-                        </div>
-                    </motion.div>
+                    
                 </div>
             </motion.div>
         </section>
